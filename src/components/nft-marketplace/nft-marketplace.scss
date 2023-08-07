@@ -1,0 +1,48 @@
+.nft__market {
+  &--section {
+
+    .slick {
+      &-prev {
+
+        &:before {
+          display: none;
+        }
+
+        z-index: 9;
+        left: 50px;
+        height: 50px;
+        width: 50px;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+
+      &-next {
+
+        &:before {
+          display: none;
+        }
+
+        z-index: 9;
+        right: 50px;
+        height: 50px;
+        width: 50px;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &--caption {
+    img {
+      width: 100%;
+    }
+  }
+}

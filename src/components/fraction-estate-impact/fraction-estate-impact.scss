@@ -1,0 +1,36 @@
+.fraction__estate {
+  &--section {
+    .slick {
+      &-prev,
+      &-next {
+        display: none !important;
+      }
+
+      &-list {
+        min-height: 350px;
+      }
+    }
+  }
+
+  &--inner {
+    padding: 35px 15px;
+    border-radius: 45px;
+    text-align: center;
+    border: 1px solid $lightGray;
+
+    img {
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+  }
+
+  &--center {
+
+    .slick-current {
+      border-radius: 45px;
+      background-color: $pureWhite;
+      transform: scale(1.08);
+      box-shadow: 0px 10px 100px #D7E9FB;
+    }
+  }
+}

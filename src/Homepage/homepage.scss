@@ -1,0 +1,884 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+$blue: #7565F4;
+$font: 'Manrope', sans-serif;
+
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: url('../assets/images/png/background-gradient.png');
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: $font;
+}
+
+p{
+    font-family: $font;
+    font-size: 16px;
+    word-break: break-all;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    font-family: $font;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.button {
+    width: 100%;
+    background: linear-gradient(91.09deg, #7D6FE5 5.79%, #8879FD 48.91%, #7565F4 94.81%) !important;
+    border-radius: 75px !important;
+    color: #fff;
+    text-decoration: none !important;
+    box-shadow: 0px 8px 47px rgba(134, 120, 249, 0.49) !important;
+}
+
+
+.is-sticky {
+    position: fixed !important;
+    top: 0;
+    background: #fff;
+    left: 0;
+    padding: 20px 90px !important;
+    z-index: 999;
+}
+
+.navbar_house{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .fixed {
+        position: fixed;
+        top:0; left:0;
+        width: 100%; 
+    }
+    .links{
+        display: flex;
+        align-items: center;
+        a{
+            margin: 0 100px 0 0;
+            font-weight:600;
+            font-size: 16px;
+            white-space: nowrap;
+            cursor: pointer;
+            color: #000;
+        }    
+        .button{
+            padding: 15px 20px;
+        }
+    }
+}
+
+.banner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .heading{
+        width: 100%;
+        margin: 0 auto;
+        h2{
+            font-size: 70px;
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+            margin: 50px 0 0;
+            .blue{
+                color: $blue;
+            }
+        }
+    }    
+    .banner_img{
+        display: flex;
+        justify-content: space-between;
+        margin-top: -50px;
+        .second{
+            margin-top: 20px;
+        }
+        .text_banner{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+                margin: 14% 13% 60px;
+                font-size: 18px;
+                line-height: 40px;
+                word-break: break-word;
+            }
+            .button{
+                max-width: 166px;
+                padding: 20px 0;
+            }
+        }
+    }
+}
+
+.our_mission{
+    width: 100%;
+    margin: 50px 0;
+    .heading{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h4{
+            font-size: 50px;
+            font-weight: 600;
+        }
+        p{
+            margin: 0 25%;
+            text-align: center;
+            line-height: 28px;
+            word-break: break-word;
+        }
+    }
+    .mission_body{
+        width: 100%;
+        background: #fff;
+        border-radius: 68px;
+        padding: 20px;
+        margin: 50px 0;
+        box-shadow: 0px 4px 250px rgba(125, 125, 125, 0.05);
+
+        .mission_img{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .mission_p{
+           line-height: 28px;
+           font-weight: 500;
+           padding: 0 50px;
+           p{
+            word-break: break-word;
+           }
+        }
+        .two_grids{
+            display: flex;
+            .order_list{
+                width: 100%;
+                margin: 30px 60px;
+                .list_style{
+                    display: flex;
+                    align-items: center;
+                    margin: 30px 0;
+                    h2{
+                        font-size: 40px;
+                        font-weight: 600;
+                        position: relative;
+                        z-index: 2;
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            background-image: url(../assets/images/svg/order_list_vector.svg);
+                            width: 48px;
+                            height: 48px;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            z-index: -1;
+                            left: -14px;
+                            top: -2px;
+                        }
+                    }
+                    p{
+                        margin-left: 10px;
+                        font-weight: 500;
+                        word-break: break-word;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+.fraction_background{
+    width: 100%;
+    background: #fff;
+    margin: 50px 0;
+    box-shadow: 0px 4px 250px rgba(125, 125, 125, 0.05);
+    .fraction_estate{
+        width: 100%;
+        margin-bottom: 100px;
+        .heading{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 0;
+            .blue{
+                color: $blue;
+            }
+            h4{
+                font-size: 50px;
+                font-weight: 600;
+            }
+            p{
+                margin: 0 26%;
+                text-align: center;
+                line-height: 28px;
+                word-break: break-word;
+            }
+        }
+        .slider {
+            width: 50%;
+            margin: 100px auto;
+        }
+    
+        .slick-slide {
+            box-shadow: 0px 10px 100px #d7e9fb;
+            border-radius: 43px;
+            border: none !important;
+            margin: 50px 2px;
+        }
+    
+        .slick-slide img {
+          width: 100%;
+        }
+        .slick-dots li button:before {
+            font-size: 18px;
+            color: $blue;
+        }
+        .slick-prev:before,
+        .slick-next:before {
+          color: #7566F4;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            font-size: 30px;
+        }
+
+        .slick-prev, .slick-next {
+            top: 50%;
+        }
+    
+        .slick-slide {
+          transition: all ease-in-out .3s;
+          opacity: .2;
+        }
+        
+        .slick-active {
+          opacity: .5;
+        }
+        .slick-next {
+            right: 25px;
+        }
+        .slick-prev {
+            width: 30px;
+            height: 30px;
+            left: 25px;
+            z-index: 3;
+        }
+        .slick-current {
+          opacity: 1;
+          margin-top: 3px;
+        }
+        .slick-list {
+            height: 330px;
+        }
+        .fraction_icon{
+            border: 1px solid #D8D8D8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            border-radius: 43px;
+            min-height: 210px;
+            img{
+                max-width: 110px;
+                object-fit: cover;
+                height: 110px;
+            }
+        }
+    }
+} 
+
+.NFTmarketplace{
+    width: 100%;
+    margin-bottom: 50px;
+    .heading{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h4{
+            font-size: 50px;
+            font-weight: 600;
+        }
+        p{
+            margin: 0 25%;
+            text-align: center;
+            line-height: 28px;
+            word-break: break-word;
+        }
+        .button{
+            max-width: 180px;
+            margin: 30px 0;
+            padding: 15px 0;
+        }
+    }
+    .slider_normal{
+        width: 100%;
+        margin-top: 50px;
+        .nft_market {
+            border: 11px solid #fff;
+            border-radius: 43px;
+            box-shadow: 0px 4px 250px rgb(125 125 125 / 5%);
+        }
+        .slider {
+            width: 50%;
+            margin: 100px auto;
+        }
+    
+        .slick-slide {
+            border-radius: 43px;
+            border: none !important;
+        }
+    
+        .slick-slide img {
+          width: 100%;
+        }
+        .slick-dots li button:before {
+            font-size: 18px;
+            color: $blue;
+        }
+        .slick-prev:before,
+        .slick-next:before {
+          color: #7566F4;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            font-size: 30px;
+        }
+
+        .slick-prev, .slick-next {
+            top: 50%;
+            z-index: 3;
+        }
+    
+        .slick-slide {
+          transition: all ease-in-out .3s;
+          opacity: .2;
+        }
+        
+        .slick-active {
+          opacity: .5;
+        }
+        .slick-next {
+            right: -25px;
+        }
+        .slick-prev {
+            left: -25px;
+        }
+        .slick-current {
+          opacity: 1;
+        }
+    }    
+}  
+
+.fraction_token{
+    width: 100%;
+    margin: 50px 0;
+    .heading{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h4{
+            font-size: 50px;
+            font-weight: 600;
+            .blue{
+                color: $blue;
+            }
+        }
+        p{
+            margin: 0 25%;
+            text-align: center;
+            line-height: 28px;
+            word-break: break-word;
+        }
+    }  
+    .fraction_body{
+        width: 100%;
+        margin: 50px 0;
+        .fraction_phase{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .phase{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                min-height: 482px;
+                justify-content: space-between;
+                h4{
+                    background: #fff;
+                    color: $blue;
+                    width: 169px;
+                    height: 39px;
+                    box-shadow: 0px 10px 100px #d7e9fb;
+                    border-radius: 75px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 20px;
+                }
+            }
+            .line-h {
+                width: 100%;
+                height: 482px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                justify-content: space-between;
+                align-items: center;
+                &::after{
+                    content: '';
+                    height: 100%;
+                    background: #7565F4;
+                    width: 1px;
+                    margin: 0 auto;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+                .circle{
+                    width: 26px;
+                    height: 26px;
+                    border: 1px solid #b9b9b9;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    &::before{
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        background: $blue;
+                        border-radius: 50%;
+                        top: 4px;
+                        margin: 4px 4px;
+                    }
+                }
+            }
+            .presale_h6{
+                font-weight: 500;
+                text-align: center;
+            }
+            .presale {
+                border: 5px solid $blue;
+                border-radius: 0 42px 0 42px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 0;
+                flex-direction: column;
+                h4{
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: $blue;
+                }
+                h6{
+                    font-weight: 700;
+                }
+                p{
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .token_img{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button{
+            max-width: 176px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 50px auto 0;
+            padding: 15px 0;
+        }
+    }  
+}
+
+.token_distribution{
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 100px;
+    box-shadow: 0px 10px 100px #d7e9fb;
+    padding: 50px;
+    .heading{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h4{
+            font-size: 50px;
+            font-weight: 600;
+            .blue{
+                color: $blue;
+            }
+        }
+        p{
+            margin: 0 25%;
+            text-align: center;
+            line-height: 28px;
+            word-break: break-word;
+        }
+    }  
+    .token_dist_body{
+        width: 100%;
+        margin: 70px 0;
+        .token_image{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+                max-width: 517px;
+            }
+        }
+        .progress_label{
+            width: 100%;
+            margin: 30px 0;
+            &.blueC{
+                .progress-bar{
+                    background: #7666F4 !important;
+                }
+            }
+            &.light_b{
+                .progress-bar{
+                    background: #736D9F !important;
+                }    
+            }
+            &.blck{
+                .progress-bar{
+                    background: #3F3F42 !important;
+                }    
+            }
+            &.grey{
+                .progress-bar{
+                    background: #7F7FAA !important;
+                }    
+            }
+            &.blck_d{
+                .progress-bar{
+                    background: #5D4D73 !important;
+                }    
+            }
+            &.burgandy{
+                .progress-bar{
+                    background: #9588F8 !important;
+                }    
+            }
+
+            label{
+                display: flex;
+                justify-content: space-between;
+                font-weight: 600;
+            }
+            .progress{
+                margin: 10px 0;
+                .progress-bar{
+                    background: #5044AA;
+                }
+            }
+        }
+    }  
+}
+
+.fraction_team {
+    width: 100%;
+    margin: 30px 0;
+    padding: 50px;
+    .heading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        h4 {
+            font-size: 50px;
+            font-weight: 600;
+
+            .blue {
+                color: $blue;
+            }
+        }
+
+        p {
+            margin: 0%;
+            text-align: center;
+            line-height: 28px;
+            word-break: break-word;
+        }
+    }
+
+    .team_1 {
+        width: 100%;
+        margin: 10% 0;
+        text-align: center;
+        img{
+            padding: 7px;
+            border: 5px solid #7566F4;
+            border-radius: 24px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 413px;
+            height: 423px;
+            object-fit: cover;
+        }
+        h4{
+            margin-top: 30px;
+            font-weight: 700;
+        }
+        p{
+            color: #7565F4;
+            font-size: 18px;
+            font-weight: 600;
+        }    
+    }
+}
+
+.footer_b{
+    width: 100%;
+    background: #000000;
+    .footer_body{
+        margin: 50px 0;
+        p{
+            color: #fff;
+            margin: 20px 0;
+            word-break: break-word;
+        }
+        .links{
+            width: 100%;
+            ul{
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li{
+                    margin: 0 30px 0 0;
+                }
+            }
+            .link_bottom{
+                margin-top: 20px;
+                .facebook{
+                    color: #fff;
+                    margin: 10px 0;
+                }
+            }
+        }
+        .menus{
+            width: 100%;
+            ul{
+                padding: 0;
+                color: 0;
+                display: flex;
+                justify-content: flex-end;
+                li{
+                    margin: 40px 30px 0 0;
+                    a{
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                }
+            }    
+        }
+    }
+}
+
+.footer_bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background:#000;
+    border-top: 1px solid #4D4D4D;
+    p{
+        color: #fff;
+        padding: 10px 0;
+        margin-bottom: 0;
+    }
+}
+
+.modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0;
+}
+
+.fet_headerr{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h4{
+        justify-content: center;
+        font-weight: 600;
+        .blue{
+            color: $blue;
+        }
+    }    
+}
+
+.modal-title.h4 {
+    width: 100%;
+}
+
+.phase.d_none{
+    display: none !important;
+}
+
+.phase.d_block{
+    display: block;
+}
+
+.d_block{
+    display: block;
+}
+
+@media (min-width: 320px) and (max-width: 992px){
+
+    .footer_b .footer_body {
+        margin: 50px 0 3px;
+    }
+
+    .phase.d_none{
+        display: block !important;
+    }
+    
+    .phase.d_block{
+        display: none !important;
+    }
+
+    .fraction_token .fraction_body .fraction_phase .phase h4 {
+        text-align: center;
+        margin: 30px auto;
+    }
+
+    .fraction_token .fraction_body .fraction_phase .phase {
+        min-height: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .d_none{
+        display: block !important;
+    }
+    
+    .d_block{
+        display: none !important;
+    }
+
+    .fraction_token .fraction_body .fraction_phase .line-h {
+        display: none;
+    }
+
+    .is-sticky {
+        padding: 0 !important;
+    }
+
+    .navbar_house .links a {
+        margin: 20px 0;
+    }
+
+    .token_distribution .heading p {
+        margin: 0;
+    }
+
+    .token_distribution {
+        margin: 30px 0;
+        border-radius: 30px;
+    }
+
+    .banner .banner_img .text_banner .button {
+        margin: 0 0 30px 0px;
+    }
+
+    .banner .banner_img .text_banner p {
+        margin: 40px 0;
+    } 
+    .nav_menus{
+        display: flex;
+    }   
+    .banner  {
+        .heading{ 
+            h2{
+            font-size: 40px;
+            }
+        }
+        .banner_img {
+            flex-direction: column;
+            margin: 50px 0;
+        }        
+    }
+    .our_mission{
+        margin: 0 !important;
+        .heading{
+            p{
+                margin: 0;
+            }
+        }
+        .mission_body{
+            .two_grids{
+                display: flex;
+                flex-direction: column;
+                .order_list{
+                    margin: 0 !important;
+                }
+            }
+            .mission_p{
+                padding: 20px 0 !important;
+
+            }
+        }
+    }    
+    .fraction_background{
+        margin: 0;
+        .fraction_estate{
+            .heading{
+                padding: 50px 30px;
+                p {
+                    margin: 0;
+                }
+            } 
+        } 
+    } 
+    .NFTmarketplace{
+        .heading{
+            p {
+                margin: 0;
+            }
+        } 
+    } 
+    .NFTmarketplace .slider_normal .slick-prev {
+        left: 25px;
+    }
+    .NFTmarketplace .slider_normal .slick-next {
+        right: 25px;
+    }
+    .fraction_token .heading p {
+        margin: 0 10px;
+    }
+}

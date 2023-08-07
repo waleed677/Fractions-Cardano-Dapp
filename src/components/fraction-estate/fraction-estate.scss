@@ -1,0 +1,33 @@
+.fraction__estate {
+  &--section {
+    padding: 0 0 120px 0;
+
+    button {
+      margin: 70px auto 0 auto;
+      display: block;
+    }
+
+    .slick-dots li {
+      width: 28px;
+      height: 28px;
+      margin: 0 3px;
+    }
+
+    .slick-dots li button:before {
+      opacity: 1;
+      width: 26px;
+      height: 26px;
+      font-size: 16px;
+      line-height: 28px;
+      color: transparent;
+      border-radius: 100%;
+      border: 1px solid #d9d9d9;
+      background-color: transparent;
+    }
+
+    .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: #7565F4;
+    }
+  }
+}
