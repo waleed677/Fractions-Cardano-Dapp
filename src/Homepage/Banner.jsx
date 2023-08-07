@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { Image, ModalHeader, Form, Button, InputGroup } from 'react-bootstrap';
 import { QRCode } from '../assets/ImageIndex';
 import Modal from 'react-bootstrap/Modal';
@@ -10,6 +10,11 @@ import { BrowserWallet } from '@meshsdk/core';
 import { Transaction } from '@meshsdk/core';
 
 function BannerPage() {
+
+    const newLocal = "addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v";
+    const [address, setAddress] = useState(newLocal);
+
+    const inputRef = useRef(0);
     const wallets = BrowserWallet.getInstalledWallets();
 
 
@@ -44,31 +49,23 @@ function BannerPage() {
         status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
 
-        const tx = new Transaction({ initiator: status })
-        .sendLovelace(
-          'addr_test1qrukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaqekmxhh',
-          '1000000'
-        )
-      ;
-
-      const unsignedTx = await tx.build();
-      const signedTx = await status.signTx(unsignedTx);
-      const txHash = await status.submitTx(signedTx);
-      console.log(tx);
     }
 
     const handleSubmitTransaction = async () => {
+        const adaValue = inputRef.current.value;
+        const loveLace = adaValue * 1000000;
         const tx = new Transaction({ initiator: connectedWallet })
         .sendLovelace(
-          'addr_test1qrukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaqekmxhh',
-          '1000000'
-        )
-      ;
-
+          'addr_test1qqfhd2rd839eh0y5xxztvm86wtmvk358q4pv6g6w7d9gwtzruscez2z3ae7ejhfsvdttvx9wcervfduey9sgnej63hwqqplg8g',loveLace.toString()
+        );
+            console.log(tx);
       const unsignedTx = await tx.build();
       const signedTx = await connectedWallet.signTx(unsignedTx);
       const txHash = await connectedWallet.submitTx(signedTx);
       console.log(unsignedTx);
+      if(inputRef.current) {
+          inputRef.current.value = '';
+      }
     }
 
 
@@ -77,8 +74,7 @@ function BannerPage() {
         window.scrollTo(0, 0);
     }, []);
 
-    const newLocal = "addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v";
-    const [address, setAddress] = useState(newLocal);
+
 
     const copyAddress = (e) => {
         alert("Copied");
@@ -103,6 +99,8 @@ function BannerPage() {
                         {connected && <InputGroup className="mb-3 mt-5">
                             <Form.Control
                                 placeholder="Enter ADA Amount"
+                                ref={inputRef}
+                                type="number"
                                 
                             />
                             <Button variant="outline-primary " id="button-addon2" onClick={handleSubmitTransaction}>
