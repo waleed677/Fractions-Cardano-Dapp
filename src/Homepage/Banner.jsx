@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Image, ModalHeader } from 'react-bootstrap';
+import { Image, ModalHeader, Form, Button, InputGroup } from 'react-bootstrap';
 import { QRCode } from '../assets/ImageIndex';
 import Modal from 'react-bootstrap/Modal';
 import { Banner1, Banner2 } from '../assets/ImageIndex';
@@ -7,13 +7,15 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { CardanoWallet } from '@meshsdk/react';
 import { useAddress } from '@meshsdk/react';
 import { BrowserWallet } from '@meshsdk/core';
-
+import { Transaction } from '@meshsdk/core';
 
 function BannerPage() {
     const wallets = BrowserWallet.getInstalledWallets();
 
 
-    const [connected, setConnected] = useState(false)
+    const [connected, setConnected] = useState(false);
+    const [connectedWallet, setConnectedWallet] = useState();
+    const [balance, setBalance] = useState();
     const [showModal, setShowModal] = useState(false);
     const [show, setShow] = useState(false);
 
@@ -21,7 +23,7 @@ function BannerPage() {
     const handleShow = () => setShow(true);
 
     const handleShowModal = () => {
-        if(!connected) {
+        if (!connected) {
             setShowModal(true);
         } else {
             setConnected(false);
@@ -35,8 +37,38 @@ function BannerPage() {
 
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
+        const balance = await status.getBalance();
+        setConnectedWallet(status);
+        setBalance(balance[0].quantity.slice(0,5));
+
         status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
+
+        const tx = new Transaction({ initiator: status })
+        .sendLovelace(
+          'addr_test1qrukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaqekmxhh',
+          '1000000'
+        )
+      ;
+
+      const unsignedTx = await tx.build();
+      const signedTx = await status.signTx(unsignedTx);
+      const txHash = await status.submitTx(signedTx);
+      console.log(tx);
+    }
+
+    const handleSubmitTransaction = async () => {
+        const tx = new Transaction({ initiator: connectedWallet })
+        .sendLovelace(
+          'addr_test1qrukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaqekmxhh',
+          '1000000'
+        )
+      ;
+
+      const unsignedTx = await tx.build();
+      const signedTx = await connectedWallet.signTx(unsignedTx);
+      const txHash = await connectedWallet.submitTx(signedTx);
+      console.log(unsignedTx);
     }
 
 
@@ -62,12 +94,23 @@ function BannerPage() {
                     <Image className="img-fluid" src={Banner1} />
                     <div className="text_banner">
                         <p className="text-center">Fraction.estate will be revolutionizing the real estate market by making it possible for anyone to fractionally buy, sell and invest in real world properties.</p>
-                        
-                        <button className="btn btn-primary button" onClick={handleShowModal}>
-                           {connected ? "Disconnect" : "Connect Wallet"}
-                           </button>
 
-                        {connected && <div><p>Your wallet address is: <code></code></p></div>}
+                        <button className="btn btn-primary button" onClick={handleShowModal}>
+                            {connected ? `Disconnect` : "Connect Wallet"}
+                        </button>
+
+                        <div style={{width:"80%"}}>
+                        {connected && <InputGroup className="mb-3 mt-5">
+                            <Form.Control
+                                placeholder="Enter ADA Amount"
+                                
+                            />
+                            <Button variant="outline-primary " id="button-addon2" onClick={handleSubmitTransaction}>
+                                Send
+                            </Button>
+                        </InputGroup>
+                        }
+                        </div>
                     </div>
                     <Image className="img-fluid second" src={Banner2} />
                 </div>
