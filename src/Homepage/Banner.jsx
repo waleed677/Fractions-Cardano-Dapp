@@ -44,36 +44,14 @@ function BannerPage() {
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
         const addresses = await status.getRewardAddresses();
-        console.log(addresses);
         const signature = await status.signData(addresses[0], 'Fraction Estate');
         const balance = await status.getBalance();
         setConnectedWallet(status);
         // setBalance(balance[0].quantity.slice(0,5));
-        console.log(balance)
 
         status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
 
-        // try {
-        //     const tx = new Transaction({ initiator: status })
-        //         .sendLovelace(
-        //             'addr1q8ukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaq6qxxmg',
-        //             '1000000'
-        //         )
-        //         ;
-
-        //     const unsignedTx = await tx.build();
-        //     const signedTx = await status.signTx(unsignedTx);
-        //     const txHash = await status.submitTx(signedTx);
-        //     console.log(txHash);
-        //     if(txHash !== "") {
-        //         setResponse("Transaction has been successfully!")
-        //     } else {
-        //         setResponse("Something went wrong")
-        //     }
-        // } catch (e) {
-        //     console.log(e)
-        // }
     }
 
     const handleSubmitTransaction = async () => {
