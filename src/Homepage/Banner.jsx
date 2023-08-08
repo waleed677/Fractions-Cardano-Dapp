@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef } from "react";
-import { Image, ModalHeader, Form, Button, InputGroup } from 'react-bootstrap';
+import { Image, ModalHeader, Form, Button, InputGroup, Alert } from 'react-bootstrap';
 import { QRCode } from '../assets/ImageIndex';
 import Modal from 'react-bootstrap/Modal';
 import { Banner1, Banner2 } from '../assets/ImageIndex';
@@ -23,6 +23,7 @@ function BannerPage() {
     const [balance, setBalance] = useState();
     const [showModal, setShowModal] = useState(false);
     const [show, setShow] = useState(false);
+    const [response, setResponse] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -42,20 +43,49 @@ function BannerPage() {
 
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
-        const changeAddress = await status.getChangeAddress();
-        // const balance = await status.getBalance();
+        const addresses = await status.getRewardAddresses();
+        console.log(addresses);
+        const signature = await status.signData(addresses[0], 'Fraction Estate');
+        const balance = await status.getBalance();
         setConnectedWallet(status);
         // setBalance(balance[0].quantity.slice(0,5));
-        // console.log(changeAddress)
+        console.log(balance)
 
         status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
 
+        // try {
+        //     const tx = new Transaction({ initiator: status })
+        //         .sendLovelace(
+        //             'addr1q8ukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaq6qxxmg',
+        //             '1000000'
+        //         )
+        //         ;
+
+        //     const unsignedTx = await tx.build();
+        //     const signedTx = await status.signTx(unsignedTx);
+        //     const txHash = await status.submitTx(signedTx);
+        //     console.log(txHash);
+        //     if(txHash !== "") {
+        //         setResponse("Transaction has been successfully!")
+        //     } else {
+        //         setResponse("Something went wrong")
+        //     }
+        // } catch (e) {
+        //     console.log(e)
+        // }
+    }
+
+    const handleSubmitTransaction = async () => {
+        let wallet = connectedWallet;
+        const adaValue = inputRef.current.value;
+        
+        const loveLace = adaValue * 1000000;
         try {
-            const tx = new Transaction({ initiator: status })
+            const tx = new Transaction({ initiator: wallet })
                 .sendLovelace(
-                    'addr1q8ukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaq6qxxmg',
-                    '1000000'
+                    'addr1qyfhd2rd839eh0y5xxztvm86wtmvk358q4pv6g6w7d9gwtzruscez2z3ae7ejhfsvdttvx9wcervfduey9sgnej63hwqrhzgth',
+                    loveLace.toString()
                 )
                 ;
 
@@ -63,31 +93,24 @@ function BannerPage() {
             const signedTx = await wallet.signTx(unsignedTx);
             const txHash = await wallet.submitTx(signedTx);
             console.log(txHash);
+            if(txHash !== "") {
+                setResponse("Transaction successful!")
+            } else {
+                setResponse("Something went wrong")
+            }
         } catch (e) {
             console.log(e)
         }
 
-
-
-
-
-    }
-
-    const handleSubmitTransaction = async () => {
-        const adaValue = inputRef.current.value;
-        const loveLace = adaValue * 1000000;
-        const tx = new Transaction({ initiator: connectedWallet })
-            .sendLovelace(
-                'addr1q8ukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaq6qxxmg', loveLace.toString()
-            );
-        console.log(tx);
-        const unsignedTx = await tx.build();
-        const signedTx = await connectedWallet.signTx(unsignedTx);
-        const txHash = await connectedWallet.submitTx(signedTx);
-        console.log(unsignedTx);
         if (inputRef.current) {
             inputRef.current.value = '';
         }
+    }
+
+    const handleMinValueValidation = () => {
+        let value = inputRef.current.value;
+        inputRef.current.value = value >= 5 ? value : 5
+
     }
 
 
@@ -123,6 +146,8 @@ function BannerPage() {
                                     placeholder="Enter ADA Amount"
                                     ref={inputRef}
                                     type="number"
+                                    min={5}
+                                    onChange={handleMinValueValidation}
 
                                 />
                                 <Button variant="outline-primary " id="button-addon2" onClick={handleSubmitTransaction}>
@@ -130,6 +155,8 @@ function BannerPage() {
                                 </Button>
                             </InputGroup>
                             }
+
+                            {response && <Alert variant="info">{response}</Alert>}
                         </div>
                     </div>
                     <Image className="img-fluid second" src={Banner2} />
