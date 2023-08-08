@@ -10,6 +10,8 @@
        * this is a hack for dragula
        * error: global is not defined
        */
+       import { Buffer } from "buffer";
+    window.Buffer = Buffer;
       var global = global || window;
       </script>
      
