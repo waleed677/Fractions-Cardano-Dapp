@@ -84,7 +84,7 @@ function BannerPage() {
         try {
             const tx = new Transaction({ initiator: wallet })
                 .sendLovelace(
-                    'addr1q8ukte87pm00fq8w2kulvdll8x90fnme29wvnc8gr8mja2mz2dl0t5uqfayfx8ufg62rqtjgxsrr9twjtlcvuqhfezaq6qxxmg',
+                    'addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v',
                     loveLace.toString()
                 )
                 ;
