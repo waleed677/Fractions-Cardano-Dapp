@@ -47,8 +47,8 @@ function BannerPage() {
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
         const addresses = await status.getRewardAddresses();
-        const signature = await status.signData(addresses[0], 'Fraction Estate');
-        const balance = await status.getBalance();
+        // const signature = await status.signData(addresses[0], 'Fraction Estate');
+        // const balance = await status.getBalance();
         setConnectedWallet(status);
         // setBalance(balance[0].quantity.slice(0,5));
 
