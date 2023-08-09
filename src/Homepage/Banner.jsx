@@ -8,6 +8,9 @@ import { CardanoWallet } from '@meshsdk/react';
 import { useAddress } from '@meshsdk/react';
 import { BrowserWallet } from '@meshsdk/core';
 import { Transaction } from '@meshsdk/core';
+import { Circles } from "react-loader-spinner";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function BannerPage() {
 
@@ -17,13 +20,13 @@ function BannerPage() {
     const inputRef = useRef(0);
     const wallets = BrowserWallet.getInstalledWallets();
 
-
+    const [loading, setLoading] = useState(false);
     const [connected, setConnected] = useState(false);
     const [connectedWallet, setConnectedWallet] = useState();
     const [balance, setBalance] = useState();
     const [showModal, setShowModal] = useState(false);
     const [show, setShow] = useState(false);
-    const [response, setResponse] = useState();
+    const [response, setResponse] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -55,9 +58,12 @@ function BannerPage() {
     }
 
     const handleSubmitTransaction = async () => {
+        setLoading(true);
+        let value = inputRef.current.value;
+        inputRef.current.value = value < 5 ? 5 : value;
         let wallet = connectedWallet;
         const adaValue = inputRef.current.value;
-        
+
         const loveLace = adaValue * 1000000;
         try {
             const tx = new Transaction({ initiator: wallet })
@@ -71,13 +77,44 @@ function BannerPage() {
             const signedTx = await wallet.signTx(unsignedTx);
             const txHash = await wallet.submitTx(signedTx);
             console.log(txHash);
-            if(txHash !== "") {
-                setResponse("Transaction successful!")
+            if (txHash !== "") {
+                setLoading(false);
+                toast.success('Transaction Successful!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
             } else {
-                setResponse("Something went wrong")
+                setLoading(false);
+                toast.error('Something went wrong', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
             }
         } catch (e) {
-            console.log(e)
+            console.log(e);
+            setLoading(false);
+            toast.error('Something went wrong', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
 
         if (inputRef.current) {
@@ -85,11 +122,6 @@ function BannerPage() {
         }
     }
 
-    const handleMinValueValidation = () => {
-        let value = inputRef.current.value;
-        inputRef.current.value = value >= 5 ? value : 5
-
-    }
 
 
 
@@ -114,9 +146,20 @@ function BannerPage() {
                     <div className="text_banner">
                         <p className="text-center">Fraction.estate will be revolutionizing the real estate market by making it possible for anyone to fractionally buy, sell and invest in real world properties.</p>
 
-                        <button className="btn btn-primary button" onClick={handleShowModal}>
+                        {loading && <Circles
+                            height="80"
+                            width="80"
+                            color="#7D6FE5 "
+                            ariaLabel="circles-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />}
+                        <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
                             {connected ? `Disconnect` : "Connect Wallet"}
                         </button>
+
+
 
                         <div style={{ width: "80%" }}>
                             {connected && <InputGroup className="mb-3 mt-5">
@@ -125,7 +168,6 @@ function BannerPage() {
                                     ref={inputRef}
                                     type="number"
                                     min={5}
-                                    onChange={handleMinValueValidation}
 
                                 />
                                 <Button variant="outline-primary " id="button-addon2" onClick={handleSubmitTransaction}>
@@ -133,8 +175,19 @@ function BannerPage() {
                                 </Button>
                             </InputGroup>
                             }
-
-                            {response && <Alert variant="info">{response}</Alert>}
+                            <ToastContainer
+                                position="top-center"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                            />
+                            {/* {response && <Alert variant="info">{response}</Alert>} */}
                         </div>
                     </div>
                     <Image className="img-fluid second" src={Banner2} />
