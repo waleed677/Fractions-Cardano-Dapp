@@ -11,11 +11,9 @@ import { Transaction } from '@meshsdk/core';
 import { Circles } from "react-loader-spinner";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import {bridgeInitialApi, bridgeFullApi } from '../wallets';
 
 function BannerPage() {
 
-    console.log(typeof(bridgeInitialApi))
     const newLocal = "addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v";
     const [address, setAddress] = useState(newLocal);
 
