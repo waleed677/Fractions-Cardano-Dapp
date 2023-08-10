@@ -45,7 +45,7 @@ function BannerPage() {
 
     const fetchBalance = async (status) => {
         let balance = await status.getBalance();
-        balance = parseInt(balance[0].quantity/1000000).toFixed(2);
+        balance = parseInt(balance[0].quantity / 1000000).toFixed(2);
         setBalance(balance);
     }
 
@@ -53,11 +53,11 @@ function BannerPage() {
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
         const addresses = await status.getRewardAddresses();
-        // const signature = await status.signData(addresses[0], 'Fraction Estate');
+        const signature = await status.signData(addresses[0], 'Fraction Estate');
 
         fetchBalance(status);
 
-        status !== "" ? setConnected(true) :   setConnected(false)
+        status !== "" ? setConnected(true) : setConnected(false)
         setConnectedWallet(status);
         setShowModal(false);
 
@@ -74,7 +74,7 @@ function BannerPage() {
         try {
             const tx = new Transaction({ initiator: wallet })
                 .sendLovelace(
-                    'addr1qy8y2ycn2vv8m0q5rgtv087aljnjd207p4f22flqeru3yhhp6hqpvwl0yky2w3dpqj8r9gtp4x798yhrp7vc5lxqhwyq336vrn',
+                    'addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v',
                     loveLace.toString()
                 )
                 ;
@@ -193,22 +193,22 @@ function BannerPage() {
                             {/* {response && <Alert variant="info">{response}</Alert>} */}
                         </div>
 
-                        { !connected && 
-                        <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
-                            Connect Wallet
-                        </button>
+                        {!connected &&
+                            <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
+                                Connect Wallet
+                            </button>
                         }
 
-                        { connected &&
-                        <Dropdown className="mt-2" >
-                            <Dropdown.Toggle size="lg" id="dropdown-basic" style={{backgroundColor:"#7D6FE5 "}} >
-                            {balance} ₳
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={handleShowModal}>Disconnect</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-}
+                        {connected &&
+                            <Dropdown className="mt-2" >
+                                <Dropdown.Toggle size="lg" id="dropdown-basic" style={{ backgroundColor: "#7D6FE5 " }} >
+                                    {balance} ₳
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={handleShowModal}>Disconnect</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        }
 
 
                     </div>
@@ -230,11 +230,8 @@ function BannerPage() {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex flex-column">
-                       
-
-
                         {wallets && wallets.map((wallet) => {
-                            return <>
+                            return <div key={wallet.name}>
                                 <div className="d-flex flex-row justify-content-start align-items-center" style={{ cursor: 'pointer' }} onClick={() => handleConnectWallet(wallet)}>
                                     <div className="p-1"><Image width={40} src={wallet.icon} /></div>
                                     <div className="p-1"><h2 style={{ fontSize: "24px" }}>{wallet.name}</h2></div>
@@ -242,12 +239,11 @@ function BannerPage() {
                                 <hr style={{
                                     opacity: "0.1"
                                 }} />
+                            </div>
 
-                            </>
 
 
                         })}
-
 
                     </div>
 
