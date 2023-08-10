@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef } from "react";
-import { Image, ModalHeader, Form, Button, InputGroup, Alert } from 'react-bootstrap';
+import { Image, ModalHeader, Form, Button, InputGroup, Dropdown } from 'react-bootstrap';
 import { QRCode } from '../assets/ImageIndex';
 import Modal from 'react-bootstrap/Modal';
 import { Banner1, Banner2 } from '../assets/ImageIndex';
@@ -43,16 +43,22 @@ function BannerPage() {
         setShowModal(false)
     }
 
+    const fetchBalance = async (status) => {
+        let balance = await status.getBalance();
+        balance = parseInt(balance[0].quantity/1000000).toFixed(2);
+        setBalance(balance);
+    }
+
 
     const handleConnectWallet = async (wallet) => {
         const status = await BrowserWallet.enable(wallet.name);
         const addresses = await status.getRewardAddresses();
         // const signature = await status.signData(addresses[0], 'Fraction Estate');
-         const balance = await status.getBalance();
+
+        fetchBalance(status);
+
+        status !== "" ? setConnected(true) :   setConnected(false)
         setConnectedWallet(status);
-        // setBalance(balance[0].quantity.slice(0,5));
-        console.log(balance);
-        status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
 
     }
@@ -68,7 +74,7 @@ function BannerPage() {
         try {
             const tx = new Transaction({ initiator: wallet })
                 .sendLovelace(
-                    'addr1qyfhd2rd839eh0y5xxztvm86wtmvk358q4pv6g6w7d9gwtzruscez2z3ae7ejhfsvdttvx9wcervfduey9sgnej63hwqrhzgth',
+                    'addr1qy8y2ycn2vv8m0q5rgtv087aljnjd207p4f22flqeru3yhhp6hqpvwl0yky2w3dpqj8r9gtp4x798yhrp7vc5lxqhwyq336vrn',
                     loveLace.toString()
                 )
                 ;
@@ -76,7 +82,6 @@ function BannerPage() {
             const unsignedTx = await tx.build();
             const signedTx = await wallet.signTx(unsignedTx);
             const txHash = await wallet.submitTx(signedTx);
-            console.log(txHash);
             if (txHash !== "") {
                 setLoading(false);
                 toast.success('Transaction Successful!', {
@@ -88,7 +93,9 @@ function BannerPage() {
                     draggable: true,
                     progress: undefined,
                     theme: "light",
-                    });
+                });
+
+                fetchBalance(wallet);
             } else {
                 setLoading(false);
                 toast.error('Something went wrong', {
@@ -100,7 +107,7 @@ function BannerPage() {
                     draggable: true,
                     progress: undefined,
                     theme: "light",
-                    });
+                });
             }
         } catch (e) {
             console.log(e);
@@ -114,7 +121,7 @@ function BannerPage() {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-                });
+            });
         }
 
         if (inputRef.current) {
@@ -155,14 +162,10 @@ function BannerPage() {
                             wrapperClass=""
                             visible={true}
                         />}
-                        <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
-                            {connected ? `Disconnect` : "Connect Wallet"}
-                        </button>
-
 
 
                         <div style={{ width: "80%" }}>
-                            {connected && <InputGroup className="mb-3 mt-5">
+                            {connected && <InputGroup className="mb-3 mt-1">
                                 <Form.Control
                                     placeholder="Enter ADA Amount"
                                     ref={inputRef}
@@ -189,6 +192,25 @@ function BannerPage() {
                             />
                             {/* {response && <Alert variant="info">{response}</Alert>} */}
                         </div>
+
+                        { !connected && 
+                        <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
+                            Connect Wallet
+                        </button>
+                        }
+
+                        { connected &&
+                        <Dropdown className="mt-2" >
+                            <Dropdown.Toggle size="lg" id="dropdown-basic" style={{backgroundColor:"#7D6FE5 "}} >
+                            {balance} ₳
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={handleShowModal}>Disconnect</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+}
+
+
                     </div>
                     <Image className="img-fluid second" src={Banner2} />
                 </div>
@@ -208,23 +230,10 @@ function BannerPage() {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex flex-column">
-                        {/* {wallets && wallets.map((wallet) => {
-                            return <>
-                                <div className="d-flex flex-row justify-content-start align-items-center" style={{ cursor: 'pointer' }} onClick={() => handleConnectWallet(wallet)}>
-                                    <div className="p-1"><Image width={40} src={wallet.icon} /></div>
-                                    <div className="p-1"><h2 style={{ fontSize: "24px" }}>{wallet.name}</h2></div>
-                                </div>
-                                <hr style={{
-                                    opacity: "0.1"
-                                }} />
-
-                            </>
+                       
 
 
-                        })} */}
-
-
-                            {wallets && wallets.map((wallet) => {
+                        {wallets && wallets.map((wallet) => {
                             return <>
                                 <div className="d-flex flex-row justify-content-start align-items-center" style={{ cursor: 'pointer' }} onClick={() => handleConnectWallet(wallet)}>
                                     <div className="p-1"><Image width={40} src={wallet.icon} /></div>
