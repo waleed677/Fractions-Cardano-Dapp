@@ -48,10 +48,10 @@ function BannerPage() {
         const status = await BrowserWallet.enable(wallet.name);
         const addresses = await status.getRewardAddresses();
         // const signature = await status.signData(addresses[0], 'Fraction Estate');
-        // const balance = await status.getBalance();
+         const balance = await status.getBalance();
         setConnectedWallet(status);
         // setBalance(balance[0].quantity.slice(0,5));
-
+        console.log(balance);
         status !== "" ? setConnected(true) : setConnected(false);
         setShowModal(false);
 
@@ -68,7 +68,7 @@ function BannerPage() {
         try {
             const tx = new Transaction({ initiator: wallet })
                 .sendLovelace(
-                    'addr1vyk5tu5r44w9etfanlkjuxdn6zvsrzhudrgvhzzkc2cmy6s4xwm2v',
+                    'addr1qyfhd2rd839eh0y5xxztvm86wtmvk358q4pv6g6w7d9gwtzruscez2z3ae7ejhfsvdttvx9wcervfduey9sgnej63hwqrhzgth',
                     loveLace.toString()
                 )
                 ;
