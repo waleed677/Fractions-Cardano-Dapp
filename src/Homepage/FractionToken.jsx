@@ -26,7 +26,7 @@ function FractionToken() {
             <div className="fraction_token" id="token">
                 <div className="heading">
                     <h4><span className="blue">Fraction Estate</span> Token</h4>
-                    <p>The Fraction Estate ($FET) Token is the utility token of the Fraction Estate marketplace platform. It will be used as a payment method for various features of the platform and as a fee mechanism for DeFi features.</p>
+                    <p>Our Fraction Estate Token ($FET) is the utility token of the Fraction Estate marketplace platform. It will be used as a payment method for various features of the platform and as a fee mechanism for DeFi features. Purchase FET tokens from the faucet to get in on the ground floor and become a part of the future of real estate investment.</p>
                 </div>
                 <div className="fraction_body">
                     <Row>
