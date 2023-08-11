@@ -14,4 +14,5 @@ export { default as FooterLogo} from './images/png/fraction_white.png';
 export { default as Twitter} from './images/png/twitter.svg';
 export {default as QRCode} from './images/png/VendingQR1.png';
 export { default as TeamMember } from './images/png/fraction_team_member.png';
+export { default as TeamTajinder } from './images/png/fraction_team_member_Tejinder.png';
 export { default as DummyUser } from './images/png/dummy_user.png';

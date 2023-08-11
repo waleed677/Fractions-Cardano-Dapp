@@ -146,12 +146,12 @@ function BannerPage() {
         <>
             <div className="banner" id="home">
                 <div className="heading">
-                    <h2>A new Era of Fractional <br />Ownership & Decentralization <br />of <span className="blue">Real Estate</span></h2>
+                    <h2>Revolutionizing the <br/>Real Estate Market with <br/><span className="blue">Fractional NFT's</span></h2>
                 </div>
                 <div className="banner_img">
                     <Image className="img-fluid" src={Banner1} />
                     <div className="text_banner">
-                        <p className="text-center">Fraction.estate will be revolutionizing the real estate market by making it possible for anyone to fractionally buy, sell and invest in real world properties.</p>
+                        <p className="text-center">At Fraction.Estate, we're dedicated to making real estate investment accessible and affordable for everyone. Our platform leverages the power of blockchain technology and asset tokenization to bring a new era of fractional ownership and decentralization to the real estate market.</p>
 
                         {loading && <Circles
                             height="80"
@@ -195,7 +195,7 @@ function BannerPage() {
 
                         {!connected &&
                             <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
-                                Connect Wallet
+                                Buy Tokens
                             </button>
                         }
 

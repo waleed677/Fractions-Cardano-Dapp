@@ -5,7 +5,7 @@ import {Distribution} from '../assets/ImageIndex';
 function TokenD() {
     return (
         <>
-        <iframe width="100%" height="1080" src="https://www.youtube.com/embed/8zIf0XvoL9Y" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        {/* <iframe width="100%" height="1080" src="https://www.youtube.com/embed/8zIf0XvoL9Y" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
             <div className="token_distribution">
                 <div className="heading">
                     <h4><span className="blue">FET </span>Token Distribution</h4>

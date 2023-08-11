@@ -42,8 +42,8 @@ function Fraction() {
         <>
             <div className="fraction_estate">
                 <div className="heading">
-                    <h4><span className="blue">Fraction Estate</span> Impact</h4>
-                    <p>Real Estate tokenization is a promising utilization of blockchain innovation that will expand the financial backer base by expanding liquidity on the lookout, since it considers all the more limited scale financial backer cooperation.</p>
+                    <h4><span className="blue">Invest in Real Estate </span> on the Cardano Blockchain</h4>
+                    <p className="mt-3">Fraction.Estate is built on the Cardano blockchain, providing a secure and transparent investment platform. Our NFT marketplace allows users to trade fractional NFTs backed by real-world properties, giving you the ability to invest in a new asset class with the peace of mind that comes with blockchain technology. Real Estate tokenization is a promising utilization of blockchain innovation that will expand the financial backer base by expanding liquidity on the lookout, since it considers all the more limited scale financial backer cooperation.</p>
                 </div>
                 <div>
                     <Slider {...settings}>

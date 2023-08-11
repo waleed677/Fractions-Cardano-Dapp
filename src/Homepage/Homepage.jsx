@@ -9,7 +9,7 @@ import FractionToken from './FractionToken';
 import TokenD from './TokenDistribution';
 import {FooterLogo} from '../assets/ImageIndex';
 import {Link} from 'react-scroll';
-import { TeamMember, DummyUser } from '../assets/ImageIndex';
+import { TeamMember, DummyUser, TeamTajinder } from '../assets/ImageIndex';
 
 import './homepage.scss';
 
@@ -74,16 +74,16 @@ function HomepagePage() {
                                     <div className="team_1 left">
                                         <Image className="img-fluid" src={TeamMember}/>
                                         <div className="daniel">
-                                            <h4>Daniel Johnsen</h4>
+                                            <h4 className="daniel_d">Daniel Johnsen</h4>
                                             <p>CEO</p>
                                         </div>    
                                     </div>
                                 </Col>
                                 <Col xxl={6} lg={12} xs={12}>
                                     <div className="team_1 right">
-                                        <Image className="img-fluid" src={DummyUser} />
+                                        <Image className="img-fluid" src={TeamTajinder} />
                                         <div className="daniel">
-                                            <h4>Tejinder Singh</h4>
+                                            <h4 className="daniel_d">Tejinder Singh</h4>
                                             <p>Developer</p>
                                         </div>    
                                     </div>
@@ -92,7 +92,7 @@ function HomepagePage() {
                                     <div className="team_1 left">
                                         <Image className="img-fluid" src={DummyUser} />
                                         <div className="daniel">
-                                            <h4>Revealing soon!</h4>
+                                            <h4 className="daniel_d">Revealing soon!</h4>
                                             <p>Head of investment</p>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@ function HomepagePage() {
                                     <div className="team_1 right">
                                         <Image className="img-fluid" src={DummyUser} />
                                         <div className="daniel">
-                                            <h4>Revealing soon!</h4>
+                                            <h4 className="daniel_d">Revealing soon!</h4>
                                             <p>Head of marketing</p>
                                         </div>
                                     </div>

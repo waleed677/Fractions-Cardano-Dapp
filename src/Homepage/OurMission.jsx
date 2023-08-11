@@ -7,8 +7,8 @@ function ourMissionPage() {
         <>
             <div className="our_mission">
                 <div className="heading">
-                    <h4>Our Mission</h4>
-                    <p>By removing the middleman, Fraction Estate makes it easier and cheaper for investors to buy/sell real estate and owner/developers to raise capital.</p>
+                    <h4>Invest in Real Estate Your Way</h4>
+                    <p>With Fraction.Estate, you can invest in real-world properties in a fractional way, meaning you can own a piece of a property without having to buy it in its entirety. Our platform eliminates the need for intermediaries, making it easier and cheaper for investors to buy and sell real estate and for developers to raise capital.</p>
                 </div>
                 <div className="mission_body">
                     <Row>
@@ -19,8 +19,8 @@ function ourMissionPage() {
                         </Col>
                         <Col xxl={7} lg={12} md={12} xs={12}>
                             <div className="mission_p">
-                                <p>Fraction.estate will be revolutionizing the real estate market by the concept of asset tokenization, every land resource is held in its own organization whose offers are addressed by tokens on the blockchain. By holding these tokens, you own a portion of the legitimate substance, and likewise, the actual property. </p>
-                                <p className="mt-3">Each tokenized property is leased to occupants, producing a month to month rental yield. This considers a worldwide, partial model of land possession led totally on-chain. The benifits you will get:</p>
+                                <h3 className="reap_benefits">Reap the Benefits of Real Estate Tokenization!</h3>
+                                <p>Each tokenized property is leased to tenants, producing a monthly rental yield. This creates a global, partial model of land ownership managed entirely on the blockchain. By holding these tokens, you own a portion of the actual property and its assets. The benefits of investing through our platform include:</p>
                             </div>
                             <div className="two_grids">
                                 <div className="order_list">
