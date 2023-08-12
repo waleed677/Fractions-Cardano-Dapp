@@ -11,6 +11,9 @@ import { Transaction } from '@meshsdk/core';
 import { Circles } from "react-loader-spinner";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import Nav from 'react-bootstrap/Nav';
 
 function BannerPage() {
 
@@ -153,7 +156,7 @@ function BannerPage() {
                     <div className="text_banner">
                         <p className="text-center">Fraction.estate will be revolutionizing the real estate market by making it possible for anyone to fractionally buy, sell and invest in real world properties.</p>
 
-                        {loading && <Circles
+                        {/* {loading && <Circles
                             height="80"
                             width="80"
                             color="#7D6FE5 "
@@ -190,7 +193,7 @@ function BannerPage() {
                                 pauseOnHover
                                 theme="light"
                             />
-                            {/* {response && <Alert variant="info">{response}</Alert>} */}
+                        
                         </div>
 
                         {!connected &&
@@ -208,7 +211,7 @@ function BannerPage() {
                                     <Dropdown.Item onClick={handleShowModal}>Disconnect</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                        }
+                        } */}
 
 
                     </div>
@@ -260,6 +263,8 @@ function BannerPage() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+               
+
                     <div className="body-modal">
                         <div className="under_p">
                             <p>1 ADA = 4 FET</p>
