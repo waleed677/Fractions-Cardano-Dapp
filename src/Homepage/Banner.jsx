@@ -196,11 +196,8 @@ function BannerPage() {
                         
                         </div>
 
-                        {!connected &&
-                            <button className="mt-2 btn btn-primary button" onClick={handleShowModal}>
-                                Buy Tokens
-                            </button>
-                        }
+                       
+                           
 
                         {connected &&
                             <Dropdown className="mt-2" >
@@ -212,6 +209,11 @@ function BannerPage() {
                                 </Dropdown.Menu>
                             </Dropdown>
                         } */}
+
+                            <button className="mt-2 btn btn-primary button" onClick={handleShow}>
+                                Buy Tokens
+                            </button>
+                       
 
 
                     </div>
@@ -258,43 +260,143 @@ function BannerPage() {
                 <Modal.Header closeButton>
                     <Modal.Title>
                         <div className="fet_headerr">
-                            <h4><span className="blue">FET </span> Presale Phase 1</h4>
+                            <h4><span className="blue">FET </span> Faucet Phase 1</h4>
                         </div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-               
+                    <Tabs
+                        defaultActiveKey="home"
+                        id="uncontrolled-tab-example"
+                        className="mb-3"
+                        justify
+                    >
+                        <Tab eventKey="home" title="Connect Wallet">
 
-                    <div className="body-modal">
-                        <div className="under_p">
-                            <p>1 ADA = 4 FET</p>
-                            <p>1 FET = 0.25 ADA</p>
-                            <p>Minimum purchase: 5 ADA</p>
-                            <p>Send ADA to the address below</p>
-                        </div>
-                        <div className="qr">
-                            <Image className="img-fluid" src={QRCode} />
-                        </div>
-                    </div>
 
-                    <div className="card_body">
-                        <h4><span className="blue">Presale </span>Address</h4>
-                        <p>{address}</p>
-                        <CopyToClipboard
-                            text={address}
-                            onCopy={(e) => copyAddress(e)}
-                        >
-                            <button className="button_main">Copy address</button>
-                        </CopyToClipboard>
-                    </div>
-                    <div className="footer">
-                        <p>
-                            Please use only cardano native wallets like: Yoroi, Nami, Adalite & etc. Don’t use any exchange wallets.
-                        </p>
-                        <p>
-                            Note: FET Tokens will appear in your wallet after the payment is successfully made and approved by blockchain, it will take 10 network confirmations. The processing fees will be around 1.5 or 2 ADA.
-                        </p>
-                    </div>
+
+                            {loading &&
+                                <div className="d-flex justify-content-center">
+                                    <Circles
+                                        height="80"
+                                        width="80"
+                                        color="#7D6FE5 "
+                                        ariaLabel="circles-loading"
+                                        wrapperStyle={{}}
+                                        wrapperClass=""
+                                        visible={true}
+                                    /></div>}
+
+                            {connected &&
+                                <div className="body-modal">
+                                    <div className="under_p">
+                                        <p>1 ADA = 4 FET</p>
+                                        <p>1 FET = 0.25 ADA</p>
+                                        <p>Minimum purchase: 5 ADA</p>
+                                    </div>
+
+                                </div>
+
+                            }
+
+
+                            <div className="d-flex justify-content-center mt-3" >
+                                {connected &&
+
+                                    <InputGroup className="mb-3 mt-1">
+                                        <Form.Control
+                                            placeholder="Enter ADA Amount"
+                                            ref={inputRef}
+                                            type="number"
+                                            min={5}
+
+                                        />
+                                        <Button variant="outline-primary " id="button-addon2" onClick={handleSubmitTransaction}>
+                                            Send
+                                        </Button>
+                                    </InputGroup>
+                                }
+                                <ToastContainer
+                                    position="top-center"
+                                    autoClose={5000}
+                                    hideProgressBar={false}
+                                    newestOnTop={false}
+                                    closeOnClick
+                                    rtl={false}
+                                    pauseOnFocusLoss
+                                    draggable
+                                    pauseOnHover
+                                    theme="light"
+                                />
+                                {/* {response && <Alert variant="info">{response}</Alert>} */}
+                            </div>
+
+
+                            {!connected &&
+                                <div className="d-flex justify-content-center">
+                                    <button className="mt-2 btn btn-primary button " onClick={handleShowModal} style={{ width: "50%", textAlign: "center" }}>
+                                        Connect Wallet
+                                    </button>
+                                </div>
+                            }
+
+                            {connected &&
+                                <>
+                                    <div className="d-flex justify-content-center">
+                                        <Dropdown className="mt-2" >
+                                            <Dropdown.Toggle size="lg" id="dropdown-basic" style={{ backgroundColor: "#7D6FE5 " }} >
+                                                {balance} ₳
+                                            </Dropdown.Toggle>
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item onClick={handleShowModal}>Disconnect</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </div>
+
+                                    <div className="footer mt-3">
+                                        <p>
+                                            Note: FET Tokens will appear in your wallet after the payment is successfully made and approved by blockchain, it will take 10 network confirmations. The processing fees will be around 1.5 or 2 ADA.
+                                        </p>
+                                    </div>
+                                </>
+                            }
+                        </Tab>
+
+                        <Tab eventKey="profile" title="Buy Manually">
+                            <div className="body-modal">
+                                <div className="under_p">
+                                    <p>1 ADA = 4 FET</p>
+                                    <p>1 FET = 0.25 ADA</p>
+                                    <p>Minimum purchase: 5 ADA</p>
+                                    <p>Send ADA to the address below</p>
+                                </div>
+                                <div className="qr">
+                                    <Image className="img-fluid" src={QRCode} />
+                                </div>
+                            </div>
+
+                            <div className="card_body">
+                                <h4><span className="blue">Faucet </span>Address</h4>
+                                <p>{address}</p>
+                                <CopyToClipboard
+                                    text={address}
+                                    onCopy={(e) => copyAddress(e)}
+                                >
+                                    <button className="button_main">Copy address</button>
+                                </CopyToClipboard>
+                            </div>
+                            <div className="footer">
+                                <p>
+                                    Please use only cardano native wallets like: Yoroi, Nami, Adalite & etc. Don’t use any exchange wallets.
+                                </p>
+                                <p>
+                                    Note: FET Tokens will appear in your wallet after the payment is successfully made and approved by blockchain, it will take 10 network confirmations. The processing fees will be around 1.5 or 2 ADA.
+                                </p>
+                            </div>
+                        </Tab>
+
+                    </Tabs>
+
                 </Modal.Body>
             </Modal>
         </>

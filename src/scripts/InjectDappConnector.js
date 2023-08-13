@@ -1,4 +1,4 @@
-console.log('Test: init bridge', window.cardano);
+// console.log('Test: init bridge', window.cardano);
 
 async function checkAPI(fullApi, method) {
   const args = [...arguments];
