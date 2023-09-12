@@ -1,20 +1,21 @@
-import { useState } from 'react'
-import Homepage from './Homepage/Homepage';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from "react";
+import Homepage from "./Homepage/Homepage";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { MeshProvider } from "@meshsdk/react";
+import WalletState from "./context/walletState";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <MeshProvider>
-        <div className="App">
-          <Homepage />
-        </div>
-      </MeshProvider>
+      <WalletState>
+        <MeshProvider>
+          <div className="App">
+            <Homepage />
+          </div>
+        </MeshProvider>
+      </WalletState>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
