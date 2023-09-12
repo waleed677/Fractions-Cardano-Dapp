@@ -42,7 +42,7 @@ async function checkExpAPI(fullApi, method) {
 
 window.initCardanoDAppConnectorBridge(async () => {
   // Bridge was esteblished by the wallet.
-
+  window.cardano.vespr;
   const DAppInitiated = localStorage.getItem('DApp');
 
   if (DAppInitiated) {

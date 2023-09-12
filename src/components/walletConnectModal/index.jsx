@@ -65,7 +65,7 @@ const WalletConnectModal = (props) => {
                 </div>
               );
             })}
-
+{/* 
           <div
             className="d-flex flex-row justify-content-start align-items-center"
             style={{ cursor: "pointer" }}
@@ -77,7 +77,7 @@ const WalletConnectModal = (props) => {
             <div className="p-1">
               <h2 style={{ fontSize: "24px" }}>Vespr</h2>
             </div>
-          </div>
+          </div> */}
         </div>
       </Modal.Body>
     </Modal>
