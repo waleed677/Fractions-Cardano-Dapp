@@ -12,8 +12,8 @@ const WalletConnectModal = (props) => {
 
   const wallets = BrowserWallet.getInstalledWallets();
 
-  const handleConnectVespr = () => {
-    const status = window.cardano.vespr;
+  const handleConnectVespr =  () => {
+    const status = window.cardano.vespr
     console.log(status);
   };
 
@@ -65,8 +65,8 @@ const WalletConnectModal = (props) => {
                 </div>
               );
             })}
-{/* 
-          <div
+
+          {/* <div
             className="d-flex flex-row justify-content-start align-items-center"
             style={{ cursor: "pointer" }}
             onClick={() => handleConnectVespr()}
