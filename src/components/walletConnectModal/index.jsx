@@ -48,7 +48,7 @@ const WalletConnectModal = (props) => {
       <Modal.Body>
         <div className="d-flex flex-column">
           {wallets &&
-            wallets.filter((wallet) => wallet.name === 'VESPR')
+            wallets.filter((wallet) => wallet.name == 'VESPR')
             .map((wallet) => {
               return (
                 <div key={wallet.name}>
