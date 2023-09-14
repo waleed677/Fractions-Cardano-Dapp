@@ -15,7 +15,6 @@ const WalletConnectModal = (props) => {
 
   const handleConnectWallet = async (wallet) => {
     const status = await BrowserWallet.enable(wallet.name);
-    const vespr = await BrowserWallet.enable("VESPR");
     const addresses = await status.getRewardAddresses();
     const signature = await status.signData(addresses[0], "Fraction Estate");
     status !=="" ? walletStatus.updateWalletState(true) :   walletStatus.updateWalletState(false)
