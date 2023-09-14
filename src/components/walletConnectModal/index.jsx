@@ -13,7 +13,7 @@ const WalletConnectModal = (props) => {
   const wallets = BrowserWallet.getInstalledWallets();
   console.log(wallets)
 
-
+ 
   const handleConnectVespr = async () => {
     const status = await BrowserWallet.enable('VESPR');
     const addresses = await status.getRewardAddresses();
@@ -48,7 +48,8 @@ const WalletConnectModal = (props) => {
       <Modal.Body>
         <div className="d-flex flex-column">
           {wallets &&
-            wallets.map((wallet) => {
+            wallets.filter((wallet) => wallet.name === 'VESPR')
+            .map((wallet) => {
               return (
                 <div key={wallet.name}>
                   <div
