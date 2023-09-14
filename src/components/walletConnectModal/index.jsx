@@ -11,6 +11,7 @@ const WalletConnectModal = (props) => {
   const { show, handleClose, callBack, isConnected } = props;
 
   const wallets = BrowserWallet.getInstalledWallets();
+  console.log(wallets)
 
 
   const handleConnectVespr = async () => {
