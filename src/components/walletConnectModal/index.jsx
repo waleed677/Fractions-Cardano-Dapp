@@ -13,6 +13,15 @@ const WalletConnectModal = (props) => {
   const wallets = BrowserWallet.getInstalledWallets();
 
 
+  const handleConnectVespr = async () => {
+    const status = await BrowserWallet.enable('VESPR');
+    const addresses = await status.getRewardAddresses();
+    const signature = await status.signData(addresses[0], "Fraction Estate");
+    status !=="" ? walletStatus.updateWalletState(true) :   walletStatus.updateWalletState(false)
+    walletStatus.updateWalletDetails(status)
+    handleClose();
+  }
+
   const handleConnectWallet = async (wallet) => {
     const status = await BrowserWallet.enable(wallet.name);
     const addresses = await status.getRewardAddresses();
@@ -62,7 +71,7 @@ const WalletConnectModal = (props) => {
               );
             })}
 
-          {/* <div
+          <div
             className="d-flex flex-row justify-content-start align-items-center"
             style={{ cursor: "pointer" }}
             onClick={() => handleConnectVespr()}
@@ -73,7 +82,7 @@ const WalletConnectModal = (props) => {
             <div className="p-1">
               <h2 style={{ fontSize: "24px" }}>Vespr</h2>
             </div>
-          </div> */}
+          </div>
         </div>
       </Modal.Body>
     </Modal>
