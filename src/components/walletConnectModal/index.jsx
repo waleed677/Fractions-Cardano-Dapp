@@ -47,12 +47,11 @@ const WalletConnectModal = (props) => {
       <Modal.Body>
         <div className="d-flex flex-column">
           {wallets &&
-            wallets.filter((wallet) => wallet.name == 'vespr' || wallet.name == 'eternl' || wallet.name == 'VESPR')
-            .map((wallet) => {
+            // wallets.filter((wallet) => wallet.name == 'vespr' || wallet.name == 'eternl' || wallet.name == 'VESPR')
+            wallets.map((wallet) => {
               return (
                 <div key={wallet.name}>
-                  <p>{wallet.name}</p>
-                  {/* <div
+                  <div
                     className="d-flex flex-row justify-content-start align-items-center"
                     style={{ cursor: "pointer" }}
                     onClick={() => handleConnectWallet(wallet)}
@@ -68,7 +67,7 @@ const WalletConnectModal = (props) => {
                     style={{
                       opacity: "0.1",
                     }}
-                  /> */}
+                  />
                 </div>
               );
             })}
