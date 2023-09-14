@@ -11,7 +11,6 @@ const WalletConnectModal = (props) => {
   const { show, handleClose, callBack, isConnected } = props;
 
   const wallets = BrowserWallet.getInstalledWallets();
-  console.log(wallets)
 
  
   const handleConnectVespr = async () => {
@@ -52,7 +51,8 @@ const WalletConnectModal = (props) => {
             .map((wallet) => {
               return (
                 <div key={wallet.name}>
-                  <div
+                  <p>{wallet.name}</p>
+                  {/* <div
                     className="d-flex flex-row justify-content-start align-items-center"
                     style={{ cursor: "pointer" }}
                     onClick={() => handleConnectWallet(wallet)}
@@ -68,7 +68,7 @@ const WalletConnectModal = (props) => {
                     style={{
                       opacity: "0.1",
                     }}
-                  />
+                  /> */}
                 </div>
               );
             })}
