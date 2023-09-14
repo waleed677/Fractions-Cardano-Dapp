@@ -12,13 +12,10 @@ const WalletConnectModal = (props) => {
 
   const wallets = BrowserWallet.getInstalledWallets();
 
-  const handleConnectVespr =  () => {
-    const status = window.cardano.vespr;
-    console.log(status);
-  };
 
   const handleConnectWallet = async (wallet) => {
     const status = await BrowserWallet.enable(wallet.name);
+    const vespr = await BrowserWallet.enable("VESPR");
     const addresses = await status.getRewardAddresses();
     const signature = await status.signData(addresses[0], "Fraction Estate");
     status !=="" ? walletStatus.updateWalletState(true) :   walletStatus.updateWalletState(false)
