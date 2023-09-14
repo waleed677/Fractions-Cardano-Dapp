@@ -144,7 +144,7 @@ const Walletmodal = (props) => {
           <Modal.Title>
             <div className="fet_headerr">
               <h4>
-                <span className="blue">FET </span> Faucet Phase 121212
+                <span className="blue">FET </span> Faucet Phase 1
               </h4>
             </div>
           </Modal.Title>
