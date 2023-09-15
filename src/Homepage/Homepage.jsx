@@ -183,7 +183,7 @@ function HomepagePage() {
                                                         <Link activeClass="active" spy={true} smooth={true} to="token">Token</Link>
                                                     </li>
                                                     <li>
-                                                    <Nav.Link href="https://fraction.estate/whitepaper/Fraction-Estate-Whitepaper-v1.1.pdf" target="_blank" >Whitepaper</Nav.Link>
+                                                    <Nav.Link href="https://fraction.estate/whitepaper/Fraction_estate_whitepaper_v2.0.pdf" target="_blank" >Whitepaper</Nav.Link>
                                                     </li>
                                                     <li>
                                                         <Link spy={true} smooth={true}  to="market">NFT Marketplace</Link>
