@@ -8,24 +8,11 @@ import { useWalletList } from "@meshsdk/react";
 
 const WalletConnectModal = (props) => {
   const wallets = useWalletList();
-  console.log({wallets});
   const walletStatus = useContext(WalletConnectedContext);
 
   const { show, handleClose, callBack, isConnected } = props;
 
   // const wallets = BrowserWallet.getInstalledWallets();
-
-  
-
-   
-  const handleConnectVespr = async () => {
-    const status = await BrowserWallet.enable('VESPR');
-    const addresses = await status.getRewardAddresses();
-    const signature = await status.signData(addresses[0], "Fraction Estate");
-    status !=="" ? walletStatus.updateWalletState(true) :   walletStatus.updateWalletState(false)
-    walletStatus.updateWalletDetails(status)
-    handleClose();
-  }
 
   const handleConnectWallet = async (wallet) => {
     const status = await BrowserWallet.enable(wallet.name);
@@ -35,7 +22,6 @@ const WalletConnectModal = (props) => {
     walletStatus.updateWalletDetails(status)
     handleClose();
   };
-
 
 
   return (
@@ -52,8 +38,8 @@ const WalletConnectModal = (props) => {
       <Modal.Body>
         <div className="d-flex flex-column">
           {wallets &&
-            wallets.filter((wallet) => wallet.name == 'vespr' || wallet.name == 'eternl' || wallet.name == 'VESPR')
-             .map((wallet) => {
+            // wallets.filter((wallet) => wallet.name == 'vespr' || wallet.name == 'eternl' || wallet.name == 'VESPR')
+            wallets.map((wallet) => {
               return (
                 <div key={wallet.name}>
                   <div
