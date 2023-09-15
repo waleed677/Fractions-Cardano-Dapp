@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import {Marketplace1, Marketplace2, Marketplace3} from '../assets/ImageIndex';
+import {Marketplace1, Marketplace2, Marketplace3, Marketplace4} from '../assets/ImageIndex';
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
@@ -53,6 +53,9 @@ function NFTMarket() {
                         <div className="nft_market">
                             <Image className="img-fluid" src={Marketplace3} />
                         </div>
+                            <div className="nft_market">
+                            <Image className="img-fluid" src={Marketplace4} />
+                             </div>
                     </Slider>
                 </div>
             </div>
