@@ -1,6 +1,5 @@
 import { React, useEffect, useState, useContext } from "react";
 import { BrowserWallet } from "@meshsdk/core";
-import { Vespr } from "../../assets/ImageIndex";
 import Modal from "react-bootstrap/Modal";
 import { Image } from "react-bootstrap";
 import WalletConnectedContext from "../../context/walletContext";
