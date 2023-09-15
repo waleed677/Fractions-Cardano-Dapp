@@ -8,6 +8,7 @@ import { useWalletList } from "@meshsdk/react";
 
 const WalletConnectModal = (props) => {
   const wallets = useWalletList();
+  console.log({wallets});
   const walletStatus = useContext(WalletConnectedContext);
 
   const { show, handleClose, callBack, isConnected } = props;
