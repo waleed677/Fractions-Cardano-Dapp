@@ -177,6 +177,7 @@ const Walletmodal = (props) => {
                     <p>1 ADA = 4 FET</p>
                     <p>1 FET = 0.25 ADA</p>
                     <p>Minimum purchase: 5 ADA</p>
+                    <p>Mint fee: ~1.6 ADA + ~1.4 ADA (refunded)</p>
                   </div>
                 </div>
               )}
@@ -249,8 +250,7 @@ const Walletmodal = (props) => {
                     <p>
                       Note: FET Tokens will appear in your wallet after the
                       payment is successfully made and approved by blockchain,
-                      it will take 10 network confirmations. The processing fees
-                      will be around 1.5 or 2 ADA.
+                      it will take 10 network confirmations.
                     </p>
                   </div>
                 </>
@@ -263,6 +263,7 @@ const Walletmodal = (props) => {
                   <p>1 ADA = 4 FET</p>
                   <p>1 FET = 0.25 ADA</p>
                   <p>Minimum purchase: 5 ADA</p>
+                  <p>Mint fee: ~1.6 ADA + ~1.4 ADA (refunded)</p>
                   <p>Send ADA to the address below</p>
                 </div>
                 <div className="qr">
@@ -287,8 +288,7 @@ const Walletmodal = (props) => {
                 <p>
                   Note: FET Tokens will appear in your wallet after the payment
                   is successfully made and approved by blockchain, it will take
-                  10 network confirmations. The processing fees will be around
-                  1.5 or 2 ADA.
+                  10 network confirmations. 
                 </p>
               </div>
             </Tab>
