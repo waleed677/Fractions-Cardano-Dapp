@@ -198,7 +198,7 @@ function HomepagePage() {
                     </Container>    
                 </div>
                 <div className="footer_bottom">
-                    <p>© 2022 fraction.estate All rights reserved</p>
+                    <p>© 2023 fraction.estate AS - All rights reserved</p>
                 </div>
             </footer>
         </>
