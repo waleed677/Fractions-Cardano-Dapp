@@ -29,7 +29,7 @@ const WalletConnectModal = (props) => {
         <Modal.Title>
           <div className="fet_headerr">
             <h4>
-              <span className="blue">Connect Your Wallet Vespr </span>{" "}
+              <span className="blue">Connect Your Wallet </span>{" "}
             </h4>
           </div>
         </Modal.Title>
