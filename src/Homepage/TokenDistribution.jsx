@@ -20,7 +20,7 @@ function TokenD() {
                         </Col>
                         <Col xxl={6} lg={6} md={6} xs={12}>
                             <div className="progress_label">
-                                <label>Presale
+                                <label>Faucet Sale
                                     <span>35%</span>
                                 </label>
                                 <ProgressBar now={35} />
@@ -29,7 +29,7 @@ function TokenD() {
                                 <label>Exchange Listing
                                     <span>25%</span>
                                 </label>
-                                <ProgressBar now={35} />
+                                <ProgressBar now={25} />
                             </div>
                             <div className="progress_label light_b">
                                 <label>Reserve Capital
