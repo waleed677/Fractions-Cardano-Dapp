@@ -44,7 +44,7 @@ function HeaderFinall() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto links">
                         <Link activeClass="active" spy={"true"} smooth={"true"} to="token">Token</Link>
-                        <Nav.Link href="https://fraction.estate/whitepaper/Fraction-Estate-Whitepaper-v1.1.pdf" target="_blank" >Whitepaper</Nav.Link>
+                        <Nav.Link href="https://fraction.estate/whitepaper/Fraction_estate_whitepaper_v2.0.pdf" target="_blank" >Whitepaper</Nav.Link>
                         <Link spy={"true"} smooth={"true"} to="market">NFT Marketplace</Link>
                         <button className="btn btn-primary button" onClick={handleShow}>Buy FET Token</button>
 
