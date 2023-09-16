@@ -60,7 +60,7 @@ const WalletConnectModal = (props) => {
                   />
                 </div>
               );
-            })}
+            }).reverse()}
 
           {/* <div
             className="d-flex flex-row justify-content-start align-items-center"
