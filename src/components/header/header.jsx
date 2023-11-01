@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import CompanyLogo from '../../assets/images/svg/logo.svg'
 
 const Header = () => {
@@ -28,7 +29,7 @@ const Header = () => {
               </li>
               <li>
                 <Router>
-                  <Link to="/">NFT Marketplace</Link>
+                  <Nav.Link href="https://demo.fraction.estate/" target="_blank">NFT Marketplace</Nav.Link>
                 </Router>
               </li>
               <li>

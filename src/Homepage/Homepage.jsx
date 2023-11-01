@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image, Nav } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import HeaderFinall from './HeaderFinal';
 import BannerPage from './Banner';
 import OurMissionPage from './OurMission';
@@ -9,7 +10,7 @@ import FractionToken from './FractionToken';
 import TokenD from './TokenDistribution';
 import {FooterLogo} from '../assets/ImageIndex';
 import {Link} from 'react-scroll';
-import { TeamMember, DummyUser, TeamTajinder } from '../assets/ImageIndex';
+import { TeamMember, DummyUser, TeamTajinder, Developer4, Developer5 } from '../assets/ImageIndex';
 
 import './homepage.scss';
 
@@ -70,7 +71,7 @@ function HomepagePage() {
                                         <p>Without a world-class team, no project can be successful!</p>
                                     </div>
                                 </Col>
-                                <Col xxl={6} lg={12} xs={12}>
+                                <Col xxl={4} lg={12} xs={12}>
                                     <div className="team_1 left">
                                         <Image className="img-fluid" src={TeamMember}/>
                                         <div className="daniel">
@@ -79,7 +80,7 @@ function HomepagePage() {
                                         </div>    
                                     </div>
                                 </Col>
-                                <Col xxl={6} lg={12} xs={12}>
+                                <Col xxl={4} lg={12} xs={12}>
                                     <div className="team_1 right">
                                         <Image className="img-fluid" src={TeamTajinder} />
                                         <div className="daniel">
@@ -88,7 +89,25 @@ function HomepagePage() {
                                         </div>    
                                     </div>
                                 </Col>
-                                <Col xxl={6} lg={12} xs={12}>
+                                <Col xxl={4} lg={12} xs={12}>
+                                    <div className="team_1 right">
+                                        <Image className="img-fluid" src={Developer4} />
+                                        <div className="daniel">
+                                            <h4 className="daniel_d">Gagan Singh</h4>
+                                            <p>Web Designer/Frontend Developer</p>
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col xxl={4} lg={12} xs={12}>
+                                    <div className="team_1 right">
+                                        <Image className="img-fluid" src={Developer5} />
+                                        <div className="daniel">
+                                            <h4 className="daniel_d">Nitin Kumar</h4>
+                                            <p>Graphic Designer</p>
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col xxl={4} lg={12} xs={12}>
                                     <div className="team_1 left">
                                         <Image className="img-fluid" src={DummyUser} />
                                         <div className="daniel">
@@ -97,7 +116,7 @@ function HomepagePage() {
                                         </div>
                                     </div>
                                 </Col>
-                                <Col xxl={6} lg={12} xs={12}>
+                                <Col xxl={4} lg={12} xs={12}>
                                     <div className="team_1 right">
                                         <Image className="img-fluid" src={DummyUser} />
                                         <div className="daniel">
@@ -105,7 +124,7 @@ function HomepagePage() {
                                             <p>Head of marketing</p>
                                         </div>
                                     </div>
-                                </Col>
+                                </Col>            
                             </Row>
                         </Col>
                     </Row>
@@ -186,7 +205,7 @@ function HomepagePage() {
                                                     <Nav.Link href="https://fraction.estate/whitepaper/Fraction_estate_whitepaper_v2.0.pdf" target="_blank" >Whitepaper</Nav.Link>
                                                     </li>
                                                     <li>
-                                                        <Link spy={true} smooth={true}  to="market">NFT Marketplace</Link>
+                                                        <Nav.Link href="https://demo.fraction.estate/" target="_blank">NFT Marketplace</Nav.Link>
                                                     </li>
                                                 </ul>
                                             </div>
