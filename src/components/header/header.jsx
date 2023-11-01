@@ -28,7 +28,7 @@ const Header = () => {
               </li>
               <li>
                 <Router>
-                  <Link to="/">NFT Marketplace</Link>
+                  <Link to="https://demo.fraction.estate/">NFT Marketplace</Link>
                 </Router>
               </li>
               <li>
