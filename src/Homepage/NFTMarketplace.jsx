@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Marketplace1, Marketplace2, Marketplace3, Marketplace4} from '../assets/ImageIndex';
+
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";

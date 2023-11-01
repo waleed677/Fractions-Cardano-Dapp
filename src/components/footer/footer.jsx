@@ -29,7 +29,7 @@ const Footer = () => {
               </li>
               <li>
                 <Router>
-                  <Link to="https://demo.fraction.estate/" target="_blank">NFT Marketplace</Link>
+                  <Link to="https://demo.fraction.estate/">NFT Marketplace</Link>
                 </Router>
               </li>
               <li>

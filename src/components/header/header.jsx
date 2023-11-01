@@ -29,7 +29,7 @@ const Header = () => {
               </li>
               <li>
                 <Router>
-                  <Nav.Link href="https://demo.fraction.estate/" target="_blank">NFT Marketplace</Nav.Link>
+                  <Link to="https://demo.fraction.estate/">NFT Marketplace</Link>
                 </Router>
               </li>
               <li>
