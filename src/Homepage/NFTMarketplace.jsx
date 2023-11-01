@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
 import {Marketplace1, Marketplace2, Marketplace3, Marketplace4} from '../assets/ImageIndex';
 
 import Slider from "react-slick";
@@ -40,7 +39,7 @@ function NFTMarket() {
                 <div className="heading">
                     <h4>Our NFT Marketplace</h4>
                     <p>We are creating a fractional real estate investment platform on the cardano blockchain, enabling users to trade fractional NFTs backed by real world properties.</p>
-                    <NavLink to="https://demo.fraction.estate/" className="btn btn-primary button">View Demo</NavLink>
+                    <button className="btn btn-primary button">View Demo</button>
                 </div>
                 <div className="slider_normal">
                     <Slider {...simple}>
